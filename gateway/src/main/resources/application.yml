@@ -1,0 +1,33 @@
+server:
+  port: 18000
+
+eureka:
+  client:
+    enabled: false
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: gateway-service
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: http://localhost:18081
+          predicates:
+            - Path=/user/login
+        - id: user-service
+          uri: http://localhost:18081
+          predicates:
+            - Path=/user/**
+          filters:
+            - name: JwtAuthenticationFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: LoggingFilter
+                preLogger: true
+                postLogger: true
