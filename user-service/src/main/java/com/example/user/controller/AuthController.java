@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
     private final UserService userService;
 
-    @PostMapping("/login")
+    @PostMapping("/{id}")
     public ResponseEntity getUser(@PathVariable Long id){
         return ResponseEntity.ok(userService.getUser(id));
     }

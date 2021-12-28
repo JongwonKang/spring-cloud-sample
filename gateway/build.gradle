@@ -17,9 +17,8 @@ dependencyManagement {
 }
 
 jar {
-    enabled(false)
+    enabled = true
 }
 bootJar{
-    launchScript()
-    enabled(true)
+    enabled = false
 }
