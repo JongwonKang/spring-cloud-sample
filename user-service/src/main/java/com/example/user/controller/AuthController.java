@@ -18,11 +18,6 @@ public class AuthController {
         return ResponseEntity.ok(userService.getUser(id));
     }
 
-    @PostMapping("/regUser")
-    public ResponseEntity regUser(){
-        return ResponseEntity.ok("success");
-    }
-
     @PostMapping("/token")
     public ResponseEntity getToken(){
         return ResponseEntity.ok("success");

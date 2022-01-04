@@ -1,5 +1,6 @@
 package com.example.user.controller;
 
+import com.example.user.dto.request.LoginRequestDto;
 import com.example.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,5 +19,9 @@ public class UserController {
         return ResponseEntity.ok(userService.getUser(id));
     }
 
+    @PostMapping("/signup")
+    public ResponseEntity signup(@RequestBody LoginRequestDto loginRequestDto){
+        return ResponseEntity.ok().body(userService.signup(loginRequestDto));
+    }
 
 }
