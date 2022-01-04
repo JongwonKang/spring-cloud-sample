@@ -1,6 +1,7 @@
 package com.example.user.controller;
 
-import com.example.user.service.UserService;
+import com.example.user.dto.request.SigninRequestDto;
+import com.example.user.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -11,11 +12,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    private final UserService userService;
+    private final AuthService authService;
 
-    @PostMapping("/{id}")
-    public ResponseEntity getUser(@PathVariable Long id){
-        return ResponseEntity.ok(userService.getUser(id));
+    @PostMapping("/login")
+    public ResponseEntity getUser(@RequestBody SigninRequestDto loginRequestDto){
+        return ResponseEntity.ok(authService.signIn(loginRequestDto));
     }
 
     @PostMapping("/token")

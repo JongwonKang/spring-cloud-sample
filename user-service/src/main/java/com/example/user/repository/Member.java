@@ -11,9 +11,9 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_user")
+@Table(name = "tb_member")
 @Entity
-public class User {
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,7 +28,7 @@ public class User {
 
 
     @Builder
-    public User(String loginId, String email, String password, Authority authority) {
+    public Member(String loginId, String email, String password, Authority authority) {
         this.loginId = loginId;
         this.email = email;
         this.password = password;
